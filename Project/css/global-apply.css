@@ -1,0 +1,118 @@
+
+/*styles for global.html*/
+
+.applyimg{
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	width: 800px;
+	text-align: center;
+	position: top;
+	display: block;
+}
+
+#title {
+	font-size:35px;
+	text-align: center;
+	color: #037ef3;
+}
+
+
+#number {
+	background-color: #037ef3;
+	width: 100%;
+	height: 150px;
+	color: #ffffff;
+	font-size: 35px;
+}
+
+#country, #university, #members {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.description {
+	font-size: 20px;
+	text-align: center;
+}
+
+#map {
+	text-align: center;
+	background-color: 
+}
+
+.col-sm-3 {
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+	margin-top: 0px;
+}
+
+.numicon {
+	width: 70px;
+	height: 50px;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 992px) {
+	#number {
+		height: 450px;
+	}
+}
+
+
+
+
+
+
+/*styles for apply.html*/
+
+p {
+	font-size: 18px;
+}
+
+#steps {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+#stepTitle {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+.stepTitle {
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#rsvp {
+	background-color: orange;
+}
+
+.slider {
+	list-style-type: none;
+}
+
+.applyli {
+	background-color: #ffffff;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.bx-clone{
+   display: none !important;
+}
+
+
+
+
+
+
+
+

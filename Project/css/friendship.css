@@ -1,0 +1,59 @@
+@media screen and (max-width: 992px) {
+    .bonding {
+
+        position: relative;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .working {
+
+        position: relative;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .bonding {
+        height: 700px;
+        position: relative;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .working {
+        height: 700px;
+        position: relative;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+#topImage {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    width: 700px;
+    height: 400px;
+    text-align: center;
+    position: top;
+    display: block;
+}
+
+#title {
+    font-size:35px;
+    text-align: center;
+    color: #037ef3;
+}
+
+section {
+    font-size: 25px;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
