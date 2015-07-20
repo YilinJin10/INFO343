@@ -13,6 +13,8 @@ the top nav and the footer will be in a div inside the 'body'
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 	<!-- local files, JS -->
 	<script src="router.js"></script>	
@@ -45,9 +47,9 @@ the top nav and the footer will be in a div inside the 'body'
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topnavbar" aria-expanded="false">
 						<!-- burger menu button-->
 						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+						<span class="icon-bar" style="background-color:white"></span><span class="icon-bar" style="background-color:white"></span><span class="icon-bar" style="background-color:white"></span>
 					</button>
-					<a class="navbar-brand navbar-form" style="margin:auto;" href="#"><img style="height:100%;"src="img/logoLong.png"/></a> 
+					<a class="navbar-brand navbar-form" style="margin:auto;" href="#/"><img style="height:100%;"src="img/logoLong.png"/></a> 
 				</div>
 				<!-- menu items here, aligned right -->
 				<div class="collapse navbar-collapse navbar-form">
@@ -61,7 +63,7 @@ the top nav and the footer will be in a div inside the 'body'
 								<li><a href="#/friendship">Friendships</a></li>
 							</ul>
 						</li>
-						<li class="right-side-nav"><a href="#" style="color:#FFFFFF">Function Overview</a></li>
+						<li class="right-side-nav"><a href="#/functionOverview" style="color:#FFFFFF">Function Overview</a></li>
 						<li class="right-side-nav"><a href="#/apply" style="color:#FFFFFF">APPLY</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>

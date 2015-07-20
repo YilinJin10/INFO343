@@ -22,6 +22,10 @@ myApp.config(function($routeProvider) { //$routeProvider = default parameter exp
     templateUrl: 'apply.html',
     controller: 'applyController'
   })
+  .when('/functionOverview/', {
+    templateUrl: 'functionOverview.html',
+    controller: 'functionController'
+  })
 })
 
 //The controllers are all specified in the .js file and not in the HTML
@@ -45,5 +49,9 @@ myApp.config(function($routeProvider) { //$routeProvider = default parameter exp
 
 
 .controller('applyController', function($scope){
+  $scope.url = ""
+})
+
+.controller('functionController', function($scope){
   $scope.url = ""
 })

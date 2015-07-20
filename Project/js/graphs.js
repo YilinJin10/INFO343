@@ -1,84 +1,299 @@
 //this .js file runs page02.html and page04.html
 //composes of the data in js variable and d3 code
 
+
+var drawSkillGraph = function() {
+	var xScale;
+	var yScale;
+
+	//svg to work with 
+	var svgHeight = 500;
+	var svgWidth = 950;
+
+	var svgSkill = d3.select('#skill') // select div
+	    .append('svg') // append svg
+	    .attr('width', svgWidth) // assign width attr
+	    .attr('height', svgHeight) // assign height attr
+	    .style('background-color', 'white');
+
+	//margin of the svg area
+	var margin = {
+		left:10, 
+		bottom:30, 
+		top:20, 
+		right:500
+	};
+
+	//setting the height and width of the graphable area
+	var height = svgHeight - margin.bottom - margin.top; 
+	var width = svgWidth - margin.left - margin.right;
+
+	var g = svgSkill
+			.append('g')
+	        .attr('transform', 'translate(' +  0 + ',' + margin.top + ')') //translate the g
+	        .attr('height', height)
+	        .attr('width', width)
+
+	//set scales function for data set topSkills
+	var setScalesSkill = function() {
+	    var xMax =d3.max(topSkills, function(d){return d['count']});
+	    var xMin =d3.min(topSkills, function(d){return d['count']});
+	    xScale  = d3.scale.linear().domain([0, xMax]).range([0, width]);
+	    yScale  = d3.scale.linear().domain([0, topSkills.length]).range([0, height]);
+	}
+
+	var color = d3.scale.linear()
+	    .domain([10,20,30,40])
+	    .range(["#333399", "#0066CC", "#33CCFF", "#00CC00"]);
+
+	var barFunc = function(rect) {
+		rect.attr('width', function(d){return xScale(d['count'])})
+			.attr('height', height/(topSkills.length*1.5))
+			.attr('x', 50)
+			.attr('y', function(d, i) {return yScale(i)})
+			.attr('fill', function(d) {return color(d['count'])})
+	};
+
+	var barLabel = function(text) {
+		text.attr('font-family', 'Helvetica')
+			.attr('font-size', '18px')
+			.attr('x', function(d){return 60 + xScale(d['count'])})
+			.attr('y', function(d, i) {return yScale(i)+20})
+			.attr('fill', 'black')
+			.text(function(d) {return d['skill']})
+			.style('font-weight', 'bold')
+	};
+
+	var rankLabel = function(text) {
+		text.attr('font-family', 'Helvetica')
+			.attr('font-size', '16px')
+			.attr('x', 15)
+			.attr('y', function(d, i) {return yScale(i)+20})
+			.attr('fill', 'black')
+			.text(function(d, i) {return '#'+(i+1)})
+			.style('font-weight', 'bold')
+	};
+
+	// var countLabel = function(text) {
+	// 	text.attr('font-family', 'Helvetica')
+	// 		.attr('font-size', '18px')
+	// 		.attr('x', function(d){if (xScale(d['count']) == 0) {return ''} else {return (20 + xScale(d['count']))}})
+	// 		.attr('y', function(d, i) {return yScale(i)+20})
+	// 		.attr('fill', 'white')
+	// 		.text(function(d) {return d['count']})
+	// };
+
+	var drawGraphForSkill = function(dat) {
+		setScalesSkill();
+		var rects = g.selectAll('rect').data(dat);
+
+		rects.enter().append('rect').call(barFunc);
+
+		g.selectAll('text.label').data(dat).enter().append('text').attr("class", "label").call(barLabel);
+		g.selectAll('text.rank').data(dat).enter().append('text').attr("class", "rank").call(rankLabel);
+		
+		rects.exit().remove();
+
+		g.selectAll('rect')
+		 	.transition().duration(1500).call(barFunc) //transition and duration optional
+	};
+
+
+	drawGraphForSkill(topSkills);
+
+
+
+	// // Define x axis
+	// var xAxis = svgSkill.axis().scale(xScale).orient('top')
+
+	// // Define y axis
+	// var yAxis = svgSkill.axis().scale(yScale).orient('left')
+
+	// // Append x axis
+	// svgSkill.append('g')
+	// 	.call(xAxis)
+	// 	.attr('class', 'axis')
+	//   	.attr('transform', 'translate(' + margin.left + ',' + ( + margin.top) + ')');
+
+	// // Append y axis
+	// svgSkill.append('g')
+	// 	.attr('class', 'axis').call(yAxis)
+	//   	.attr('transform', 'translate(' + margin.left + ',' + (margin.top) + ')');
+
+}
+
+
+
+
+
+
+
+var pieChartField = function() {
+	var svgWidth = 500;
+	var svgHeight = 500;
+	var radius = Math.min(width, height) / 2;
+
+	var color = d3.scale.category20();
+
+	var margin = {
+		left:200, 
+		bottom:100, 
+		top:100, 
+		right:200
+	};
+
+	var height = svgHeight - margin.bottom - margin.top; 
+	var width = svgWidth - margin.left - margin.right;
+
+	var svg = d3.select('#field')
+				.append('svg')
+				.attr('width', width)
+				.attr('height', height)
+				.append('g')
+				.attr('transform', 'translate(' + (width / 2) +  ',' + (height / 2) + ')');
+
+
+
+	var g = svg
+			.append('g')
+	        .attr('transform', 'translate(' +  0 + ',' + margin.top + ')') //translate the g
+	        .attr('height', height)
+	        .attr('width', width)
+
+	var arc = d3.svg.arc().outerRadius(radius);
+
+	var pie = d3.layout.pie()
+			  .value(function(d) {return d['count']})
+			  .sort(null);
+
+	var path = svg.selectAll('path')
+	  .data(pie(currentFields))
+	  .enter()
+	  .append('path')
+	  .attr('d', arc)
+	  .attr('fill', function(d, i) {return color(d.data.label)});
+
+	var drawPie = function() {
+		
+
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //variables
 var topSkills = [{
-	id: 1,
 	skill: 'Leadership skills',
 	count: 34
 }, {
-	id: 2,
 	skill: 'Interpersonal relations and working collaboratively',
 	count: 32
 }, {
-	id: 3,
 	skill: 'Networking and relationship building',
 	count: 32
 }, {
-	id: 4,
 	skill: 'Project management skills',
 	count: 31
 }, {
-	id: 5,
 	skill: 'Persuasive speaking',
 	count: 28
 }, {
-	id: 6,
 	skill: 'Creative thinking and problem solving',
 	count: 26
 }, {
-	id: 7,
-	skill: 'Critical thinking and analysis of arguments and information',
+	skill: 'Critical thinking, Analysis of arguments and information',
 	count: 23
 }, {
-	id: 8,
-	skill: 'Improved work based on feedback form others',
+	skill: 'Improve work based on feedback form others',
 	count: 21
 }, {
-	id: 9,
 	skill: 'Teaching skills',
 	count: 18
 }, {
-	id: 10,
 	skill: 'Financial and business management skills',
 	count: 13
 }];
 
 
+var emptySkill = [{
+	skill: 'Leadership skills',
+	count: 0
+}, {
+	skill: 'Interpersonal relations and working collaboratively',
+	count: 0
+}, {
+	skill: 'Networking and relationship building',
+	count: 0
+}, {
+	skill: 'Project management skills',
+	count: 0
+}, {
+	skill: 'Persuasive speaking',
+	count: 0
+}, {
+	skill: 'Creative thinking and problem solving',
+	count: 0
+}, {
+	skill: 'Critical thinking, Analysis of arguments and information',
+	count: 0
+}, {
+	skill: 'Improve work based on feedback form others',
+	count: 0
+}, {
+	skill: 'Teaching skills',
+	count: 0
+}, {
+	skill: 'Financial and business management skills',
+	count: 0
+}];
+
+
+
+
 var currentFields = [{
-	id: 1, 
 	field: 'Business and Finance',
 	count: 20
 }, {
-	id: 2,
 	field: 'Student',
 	count: 12
 }, {
-	id: 3,
 	field: 'Other',
 	count: 8
 }, {
-	id: 4,
 	field: 'Media and Communications',
 	count: 5
 }, {
-	id: 5,
 	field: 'Health and Medicine',
 	count: 4
 }, {
-	id: 6,
 	field: 'Services',
 	count: 4
 }, {
-	id: 7,
 	field: 'Engineering',
 	count: 3
 }, {
-	id: 8,
 	field: 'Education',
 	count: 2
 }, {
-	id: 9,
 	field: 'Legal and Law Enforcement',
 	count: 1
 }];
@@ -108,87 +323,6 @@ var majors = [{
 
 //the top skills div using topSkills 
 //draw a bar graph of top skills
-
-console.log(topSkills);
-
-var xScale;
-var yScale;
-
-//svg to work with 
-var svgHeight = 100
-var svgWidth = 400
-var svgSkill = d3.select('#skill') // select div
-    .append('svg') // append svg
-    .attr('width', svgWidth) // assign width attr
-    .attr('height', svgHeight) // assign height attr
-    .style('background-color', 'gray');
-
-//margin of the svg area
-	var margin = {
-		left:50, 
-		bottom:100, 
-		top:50, 
-		right:50,
-};
-
-//setting the height and width of the graphable area
-var height = svgHeight - margin.bottom - margin.top; 
-var width = svgWidth - margin.left - margin.right;
-
-
-var g = svgSkill
-		.append('g')
-        .attr('transform', 'translate(' +  margin.left + ',' + margin.top + ')') //translate the g
-        .attr('height', height)
-        .attr('width', width);
-
-//set scales function for data set topSkills
-var setScalesSkill = function() {
-    var xMax =d3.max(topSkills, function(d){return d['count']});
-    var xMin =d3.min(topSkills, function(d){return d['count']});
-    var yMin =d3.min(topSkills, function(d){return d['count']});
-    var yMax =d3.max(topSkills, function(d){return d['count']});
-    xScale  = d3.scale.linear().range([0, width]).domain([xMin, xMax]);
-    yScale = d3.scale.linear().range([height, 0]).domain([yMin, yMax]);
-}
-
-var barFunc = function(rect) {
-	rect.attr('width', function(d){console.log(d['count']); return xScale(d['count'])})
-		.attr('height',50)
-		.attr('x', 50)
-		.attr('y', function(d){return d['id']*30})
-		.attr('fill', 'blue')
-};
-
-var drawSkillGraph = function() {
-	setScalesSkill();
-	var rects = g.selectAll('rect').data(topSkills)
-
-	rects.enter().append('rect').call(barFunc);
-	rects.exit().remove()
-	// g.selectAll('rect').data(topSkills)
-	// 	.exit().remove()
-	g.selectAll('rect')
-	 	.transition().duration(1500).call(barFunc) //transition and duration optional
-};
-
-drawSkillGraph();
-
-// // Define x axis
-// var xAxis = d3.svgSkill.axis().scale(xScale).orient('top')
-
-// // Define y axis
-// var yAxis = d3.svgSkill.axis().scale(yScale).orient('left')
-
-// // Append x axis
-// svgSkill.append('g')
-// 	.attr('class', 'axis').call(xAxis)
-//   	.attr('transform', 'translate(' + margin.left + ',' + (height + margin.top) + ')')
-
-// // Append y axis
-// svgSkill.append('g')
-// 	.attr('class', 'axis').call(yAxis)
-//   	.attr('transform', 'translate(' + margin.left + ',' + (margin.top) + ')')
 
 
 

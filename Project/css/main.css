@@ -54,8 +54,8 @@ margin-right: auto;
 
     }
     .applynow{
-        margin-left:30%;
-        margin-right:30%;
+        margin-left:auto;
+        margin-right:auto;
         font-size: 20px;
     }
 }
@@ -108,5 +108,5 @@ margin-right: auto;
 }
 .label{
     font-size: 18px;
-
+    color:black;
 }

@@ -27,14 +27,20 @@ section {
 	color: #037ef3;
 }
 
+.container {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
 
 #number {
 	background-color: #037ef3;
-	width: 100%;
+	width: 100% !important;
 	height: 150px;
 	color: #ffffff;
 	font-size: 35px;
-	margin: 0px;
+	margin: 0px !important;
+	padding: 0px !important;
 }
 
 #country, #university, #members {
@@ -63,11 +69,14 @@ section {
 	width: 70px;
 	height: 50px;
 	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto; 
 }
 
 @media screen and (max-width: 992px) {
 	#number {
-		height: 150px;
+		height: 550px;
+		text-align: center;
 	}
 }
 
@@ -84,7 +93,7 @@ p {
 #steps {
 	margin-left: auto;
 	margin-right: auto;
-	width: 0%;
+	width: 80%;
 }
 
 #stepTitle {
@@ -109,14 +118,13 @@ p {
 
 .applyli {
 	background-color: #ffffff;
-	float: none;
-	overflow: hidden;
-	padding: 0px;
+	text-align: center;
+	width: 80%;
+	position: absolute;
+	margin: 0 auto;
 }
 
-.bx-clone{
-   display: none !important;
-}
+
 
 
 
