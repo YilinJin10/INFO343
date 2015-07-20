@@ -1,7 +1,17 @@
 
 /*styles for global.html*/
+#intro {
+	margin-top: 100px;
+}
 
-.applyimg{
+section {
+	text-align: center;
+	font-size: 25px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.introimg{
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0px;
@@ -24,13 +34,13 @@
 	height: 150px;
 	color: #ffffff;
 	font-size: 35px;
+	margin: 0px;
 }
 
 #country, #university, #members {
 	margin-left: 50px;
 	margin-right: 50px;
 	margin-top: 0px;
-	text-align: center;
 }
 
 .description {
@@ -43,11 +53,10 @@
 	background-color: 
 }
 
-.col-sm-3 {
-	margin-left: 50px;
-	margin-right: 50px;
-	text-align: center;
+.allFloating {
 	margin-top: 0px;
+	float: left;
+	text-align: center;
 }
 
 .numicon {
@@ -58,10 +67,9 @@
 
 @media screen and (max-width: 992px) {
 	#number {
-		height: 450px;
+		height: 150px;
 	}
 }
-
 
 
 
@@ -76,7 +84,7 @@ p {
 #steps {
 	margin-left: auto;
 	margin-right: auto;
-	width: 80%;
+	width: 0%;
 }
 
 #stepTitle {
@@ -101,8 +109,9 @@ p {
 
 .applyli {
 	background-color: #ffffff;
-	padding-left: 30px;
-	padding-right: 30px;
+	float: none;
+	overflow: hidden;
+	padding: 0px;
 }
 
 .bx-clone{
