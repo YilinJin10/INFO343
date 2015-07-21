@@ -21,7 +21,7 @@ section {
 	display: block;
 }
 
-#title {
+.title {
 	font-size:35px;
 	text-align: center;
 	color: #037ef3;
@@ -124,6 +124,19 @@ p {
 	margin: 0 auto;
 }
 
+
+
+/*styles for business-skills.html*/
+
+#skills {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #037ef3;
+	padding-top: 10px;
+	padding-bottom: 70px;
+	margin-bottom: 70px;
+}
 
 
 
