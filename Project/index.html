@@ -17,11 +17,12 @@ the top nav and the footer will be in a div inside the 'body'
 	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 	<!-- local files, JS -->
-	<script src="router.js"></script>	
+	<script src="js/router.js"></script>	
 	<script src="js/global.js"></script>
 	<script src="js/graphs.js"></script>
 	<script src="js/friendship.js"></script>
 	<script src="js/apply.js"></script>
+	<script src="js/functionOverview.js"></script>
 
 	<!-- local files, CSS and style -->
 	<link rel="stylesheet" href="css/footer.css"
@@ -44,41 +45,14 @@ the top nav and the footer will be in a div inside the 'body'
 			<div class="container-fluid" >
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topnavbar" aria-expanded="false">
-						<!-- burger menu button-->
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar" style="background-color:white"></span>
-						<span class="icon-bar" style="background-color:white"></span>
-						<span class="icon-bar" style="background-color:white"></span>
-
-					<!-- <a href="#" style="color:#FFFFFF" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
-					<ul class='dropdown-menu'>
-						<li class="dropdown" style="color:white">
-							<a href="#" style="color:#FFFFFF" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reasons to Join<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#/leadership">Leadership</a></li>
-								<li><a href="#/business">Business Skills</a></li>
-								<li><a href="#/global">Global Network</a></li>
-								<li><a href="#/friendship">Friendships</a></li>
-							</ul>
-						</li>
-						
-						<li class="dropdown"><a href="#/functionOverview" >Function Overview</a></li>
-						<li class="dropdown"><a href="#/apply">APPLY</a></li>
-						<li role="separator" class="divider"></li>
-						</li>
-					</ul>					
-						 -->
-
-
-					</button>
-					<a class="navbar-brand navbar-form" style="margin:auto;" href="#/"><img style="height:100%;"src="img/logoLong.png"/></a> 
+					
+					<a class="navbar-brand navbar-form" style="margin:auto;" href="#/"><img style="height:100%;"src="http://aiesec.org/wp-content/uploads/2014/11/AIESEC-current-logo-white1.png" style="padding-top:50px;" id="logo"/></a> 
 				</div>
 				<!-- menu items here, aligned right -->
 				<div class="collapse navbar-collapse navbar-form">
 					<ul class="nav navbar-nav navbar-right" style="margin:auto;">
-						<li class="dropdown" style="color:white">
-							<a href="#" style="color:#FFFFFF" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reasons to Join<span class="caret"></span></a>
+						<li class="dropdown" style="color:white;">
+							<a href="#" style="color:#FFFFFF" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  id="reasons" onclick="">Reasons to Join<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#/leadership">Leadership</a></li>
 								<li><a href="#/business">Business Skills</a></li>
@@ -87,7 +61,35 @@ the top nav and the footer will be in a div inside the 'body'
 							</ul>
 						</li>
 						<li class="right-side-nav"><a href="#/functionOverview" style="color:#FFFFFF">Function Overview</a></li>
-						<li class="right-side-nav"><a href="#/apply" style="color:#FFFFFF">APPLY</a></li>
+						<li class="right-side-nav"><a href="#/apply" style="color:#FFFFFF; border:1px solid white; border-radius:10px; padding-top:5px; padding-bottom:5px; margin-top:10px;" id="APPLY">APPLY</a></li>
+
+						<style>
+						@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+						@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+						.container .content {
+							font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+						}
+						#APPLY:hover {background-color: black;}
+
+						h1, h2, h3, h4, h5, p, li, section, label, a, button, footer, header, div {
+							font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+						}
+
+					
+						</style>
+
+						<script>	
+						// 	function changeBackground() {
+							 
+						// 	  if (document.getElementById("reasons").style.color == "#037ef3"){
+						// 		document.getElementById("reasons").style.color='#ffffff'
+						// 	  } else {
+						// 	  	 document.getElementById("reasons").style.color="#037ef3";
+						// 	  }
+						// 	}
+
+						// </script>
+
 						<li role="separator" class="divider"></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -95,7 +97,7 @@ the top nav and the footer will be in a div inside the 'body'
 		</nav>
 	</header>
 
-	<div class="container content" ng-app="myApp" style="width:100%;">
+	<div class="container content" ng-app="myApp" style="width:100%; font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif !important;">
 		<div ng-view></div>
 	</div>
 

@@ -1,6 +1,6 @@
 
 /*styles for global.html*/
-#intro {
+.intro {
 	margin-top: 100px;
 }
 
@@ -61,8 +61,9 @@ section {
 
 .allFloating {
 	margin-top: 0px;
-	float: left;
 	text-align: center;
+	margin-right: auto;
+	margin-left: auto; 
 }
 
 .numicon {
@@ -73,15 +74,14 @@ section {
 	margin-left: auto; 
 }
 
-@media screen and (max-width: 992px) {
-	#number {
-		height: 150px;
-		text-align: center;
+@media screen and (max-width: 1200px) {
+	#country, #university, #members {
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 0px;
+		font-size: 15px;
 	}
 }
-
-
-
 
 
 /*styles for apply.html*/
@@ -136,6 +136,24 @@ p {
 	padding-top: 10px;
 	padding-bottom: 70px;
 	margin-bottom: 70px;
+}
+
+#pies {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #037ef3;
+	padding-top: 10px;
+	padding-bottom: 70px;
+	margin-bottom: 70px;
+}
+
+#field {
+	background-color: white;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 

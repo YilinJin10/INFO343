@@ -5,10 +5,8 @@
 var drawSkillGraph = function() {
 	var xScale;
 	var yScale;
-
-	//svg to work with 
 	var svgHeight = 500;
-	var svgWidth = 950;
+	var svgWidth = 800;
 
 	var svgSkill = d3.select('#skill') // select div
 	    .append('svg') // append svg
@@ -18,10 +16,10 @@ var drawSkillGraph = function() {
 
 	//margin of the svg area
 	var margin = {
-		left:10, 
+		left:50, 
 		bottom:30, 
-		top:20, 
-		right:500
+		top:30, 
+		right:300
 	};
 
 	//setting the height and width of the graphable area
@@ -74,15 +72,6 @@ var drawSkillGraph = function() {
 			.style('font-weight', 'bold')
 	};
 
-	// var countLabel = function(text) {
-	// 	text.attr('font-family', 'Helvetica')
-	// 		.attr('font-size', '18px')
-	// 		.attr('x', function(d){if (xScale(d['count']) == 0) {return ''} else {return (20 + xScale(d['count']))}})
-	// 		.attr('y', function(d, i) {return yScale(i)+20})
-	// 		.attr('fill', 'white')
-	// 		.text(function(d) {return d['count']})
-	// };
-
 	var drawGraphForSkill = function(dat) {
 		setScalesSkill();
 		var rects = g.selectAll('rect').data(dat);
@@ -98,42 +87,17 @@ var drawSkillGraph = function() {
 		 	.transition().duration(1500).call(barFunc) //transition and duration optional
 	};
 
-
 	drawGraphForSkill(topSkills);
-
-
-
-	// // Define x axis
-	// var xAxis = svgSkill.axis().scale(xScale).orient('top')
-
-	// // Define y axis
-	// var yAxis = svgSkill.axis().scale(yScale).orient('left')
-
-	// // Append x axis
-	// svgSkill.append('g')
-	// 	.call(xAxis)
-	// 	.attr('class', 'axis')
-	//   	.attr('transform', 'translate(' + margin.left + ',' + ( + margin.top) + ')');
-
-	// // Append y axis
-	// svgSkill.append('g')
-	// 	.attr('class', 'axis').call(yAxis)
-	//   	.attr('transform', 'translate(' + margin.left + ',' + (margin.top) + ')');
-
+	//no axes
 }
 
 
 
 
 
-
-
 var pieChartField = function() {
-	var svgWidth = 500;
-	var svgHeight = 500;
-	var radius = Math.min(width, height) / 2;
-
-	var color = d3.scale.category20();
+	var size = 600;
+	var radius = 200;
 
 	var margin = {
 		left:200, 
@@ -142,21 +106,17 @@ var pieChartField = function() {
 		right:200
 	};
 
-	var height = svgHeight - margin.bottom - margin.top; 
-	var width = svgWidth - margin.left - margin.right;
+	var height = size - margin.bottom - margin.top; 
+	var width = size - margin.left - margin.right;
 
 	var svg = d3.select('#field')
 				.append('svg')
-				.attr('width', width)
-				.attr('height', height)
-				.append('g')
-				.attr('transform', 'translate(' + (width / 2) +  ',' + (height / 2) + ')');
-
-
-
+				.attr('width', size)
+				.attr('height', size)
+				
 	var g = svg
 			.append('g')
-	        .attr('transform', 'translate(' +  0 + ',' + margin.top + ')') //translate the g
+			.attr('transform', 'translate(' + (margin.left + radius) +  ',' + (margin.top + radius) + ')')
 	        .attr('height', height)
 	        .attr('width', width)
 
@@ -166,32 +126,31 @@ var pieChartField = function() {
 			  .value(function(d) {return d['count']})
 			  .sort(null);
 
-	var path = svg.selectAll('path')
-	  .data(pie(currentFields))
-	  .enter()
-	  .append('path')
-	  .attr('d', arc)
-	  .attr('fill', function(d, i) {return color(d.data.label)});
-
 	var drawPie = function() {
-		
+		g.selectAll('path')
+		  .data(pie(currentFields))
+		  .enter()
+		  .append('path')
+		  .attr('d', arc)
+		  .attr('fill', function(d, i) {return currentFields[i].color});
 
-		
+		var labelr = radius + 30;
+
+		g.selectAll('text').data(currentFields).enter().append('text')
+		    .attr("transform", function(d) {
+		        var c = arc.centroid(d),
+		            x = c[0],
+		            y = c[1],
+		            // pythagorean theorem for hypotenuse
+		            h = Math.sqrt(x*x + y*y);
+		        return "translate(" + (x/h * labelr) +  ',' + (y/h * labelr) +  ")"})
+		    .attr("dy", ".35em")
+		    // are we past the center?
+		    .attr("text-anchor", function(d) {return (d.endAngle + d.startAngle)/2 > Math.PI ? "end" : "start"})
+		    .text(function(d, i) {return currentFields[i].field});
 	}
-
+	drawPie();
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -234,68 +193,42 @@ var topSkills = [{
 }];
 
 
-var emptySkill = [{
-	skill: 'Leadership skills',
-	count: 0
-}, {
-	skill: 'Interpersonal relations and working collaboratively',
-	count: 0
-}, {
-	skill: 'Networking and relationship building',
-	count: 0
-}, {
-	skill: 'Project management skills',
-	count: 0
-}, {
-	skill: 'Persuasive speaking',
-	count: 0
-}, {
-	skill: 'Creative thinking and problem solving',
-	count: 0
-}, {
-	skill: 'Critical thinking, Analysis of arguments and information',
-	count: 0
-}, {
-	skill: 'Improve work based on feedback form others',
-	count: 0
-}, {
-	skill: 'Teaching skills',
-	count: 0
-}, {
-	skill: 'Financial and business management skills',
-	count: 0
-}];
-
-
-
-
 var currentFields = [{
 	field: 'Business and Finance',
-	count: 20
+	count: 20,
+	color: '#A60F2B'
 }, {
 	field: 'Student',
-	count: 12
+	count: 12,
+	color: '#648C85'
 }, {
 	field: 'Other',
-	count: 8
+	count: 8,
+	color: '#B3F2C9'
 }, {
 	field: 'Media and Communications',
-	count: 5
+	count: 5,
+	color: '#528C18'
 }, {
 	field: 'Health and Medicine',
-	count: 4
+	count: 4,
+	color: '#C3F25C'
 }, {
 	field: 'Services',
-	count: 4
+	count: 4,
+	color: '#660066'
 }, {
 	field: 'Engineering',
-	count: 3
+	count: 3,
+	color: '#FFFF66'
 }, {
 	field: 'Education',
-	count: 2
+	count: 2,
+	color: '#339966'
 }, {
 	field: 'Legal and Law Enforcement',
-	count: 1
+	count: 1,
+	color: '#003366'
 }];
 
 
@@ -318,46 +251,4 @@ var majors = [{
 	field: 'Technology and Computing',
 	majors: ['Informatics', 'Computer Science', 'ACMS', 'Statistics']
 }];
-
-
-
-//the top skills div using topSkills 
-//draw a bar graph of top skills
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var drawFieldGraph = function(currentFields) {
-// 	var field = d3.select('#field'); //select the div
-// 	var pie = field.selectAll('circle');
-
-// 	field // select div
-// 	    .append('svg') // append svg
-// 	    .attr('width', 100) // assign width attr
-// 	    .attr('height', 200) // assign height attr
-// 	    .style('border', 'none') // assign border style
-// 	    .style('background-color', 'gray')
-
-// }
-
-
-
-
 
