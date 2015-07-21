@@ -44,13 +44,13 @@ section {
 }
 
 #country, #university, #members {
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 0px;
+	margin-right: 0px;
 	margin-top: 0px;
 }
 
 .description {
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 }
 
@@ -75,7 +75,7 @@ section {
 
 @media screen and (max-width: 992px) {
 	#number {
-		height: 550px;
+		height: 150px;
 		text-align: center;
 	}
 }
