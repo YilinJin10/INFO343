@@ -1,146 +1,113 @@
 <!-- this is the index page and the skeleton of the website -->
 <!DOCTYPE HTML>
 <html>
-<!-- 
-put all the links inside the 'head'
-the top nav and the footer will be in a div inside the 'body'
--->
-<head>
-	<!-- import online libraries -->
-	<script src="https://code.jquery.com/jquery.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
-    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
-	<!-- local files, JS -->
-	<script src="js/router.js"></script>	
-	<script src="js/global.js"></script>
-	<script src="js/graphs.js"></script>
-	<script src="js/friendship.js"></script>
-	<script src="js/apply.js"></script>
-	<script src="js/functionOverview.js"></script>
+	<head>
+		<!-- imported online libraries -->
+		<script src="https://code.jquery.com/jquery.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
+	    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
 
-	<!-- local files, CSS and style -->
-	<link rel="stylesheet" href="css/footer.css"
-	<link rel="stylesheet" type="text/css" href="main.css"/>
-	<link rel="shortcut icon" type="image/x-icon" href="http://aiesecseattle.squarespace.com/favicon.ico"/>
+		<!-- local JS files -->
+		<script src="js/router.js"></script>	
+		<script src="js/runningNumber.js"></script>
+		<script src="js/graphs.js"></script>
+		 <!-- <script src="js/friendship.js"></script> -->
 
-	<!-- bxSlider files -->
-	<script src="jquery.bxslider/jquery.bxslider.min.js"></script>
-	<script src="jquery.bxslider/jquery.bxslider.js"></script>
-	<link href="jquery.bxslider/jquery.bxslider.css" rel="stylesheet"/>
+		<!-- CSS files -->
+		<link rel="stylesheet" href="css/skeleton.css"/>
+		<link rel="stylesheet" href="css/general.css"/>
+		<link rel="stylesheet" type="text/css" href="css/friendship.css">
+		<link rel="stylesheet" type="text/css" href="main.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="http://aiesecseattle.squarespace.com/favicon.ico"/>
 
-</head>
+		<!-- bxSlider files -->
+		<script src="jquery.bxslider/jquery.bxslider.min.js"></script>
+		<script src="jquery.bxslider/jquery.bxslider.js"></script>
+		<link href="jquery.bxslider/jquery.bxslider.css" rel="stylesheet"/>
 
 
-<body>
-	
-	<header id="header" class="container">
-		<!-- menu bar is here -->
-		<nav id="topnav" style="background-color:#037ef3" class="navbar navbar-default navbar-fixed-top">
-			<div class="container-fluid" >
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					
-					<a class="navbar-brand navbar-form" style="margin:auto;" href="#/"><img style="height:100%;"src="http://aiesec.org/wp-content/uploads/2014/11/AIESEC-current-logo-white1.png" style="padding-top:50px;" id="logo"/></a> 
+	</head>
+
+
+	<body>
+		
+		<header id="header" class="container">
+			<nav id="topnav" style="background-color:#037ef3" class="navbar navbar-default navbar-fixed-top">
+				<div class="container-fluid" >
+					<div class="navbar-header">		
+						<a class="navbar-brand navbar-form" style="margin:auto;" href="#/"><img style="height:100%;"src="http://aiesec.org/wp-content/uploads/2014/11/AIESEC-current-logo-white1.png" style="padding-top:50px;" id="logo"/></a> 
+					</div>
+
+					<div class="collapse navbar-collapse navbar-form">
+						<ul class="nav navbar-nav navbar-right" style="margin:auto;">
+							<li class="dropdown" style="color:white;">
+								<a href="#" style="color:#FFFFFF" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  id="reasons" onclick="">Reasons to Join<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#/leadership">Leadership</a></li>
+									<li><a href="#/business">Business Skills</a></li>
+									<li><a href="#/global">Global Network</a></li>
+									<li><a href="#/friendship">Friendships</a></li>
+								</ul>
+							</li>
+							<li class="right-side-nav"><a href="#/functionOverview" style="color:#FFFFFF">Function Overview</a></li>
+							<li class="right-side-nav"><a href="#/apply" style="color:#FFFFFF; border:1px solid white; border-radius:10px; padding-top:5px; padding-bottom:5px; margin-top:10px;" id="APPLY">APPLY</a></li>
+							
+						</ul>
+					</div>
 				</div>
-				<!-- menu items here, aligned right -->
-				<div class="collapse navbar-collapse navbar-form">
-					<ul class="nav navbar-nav navbar-right" style="margin:auto;">
-						<li class="dropdown" style="color:white;">
-							<a href="#" style="color:#FFFFFF" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  id="reasons" onclick="">Reasons to Join<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#/leadership">Leadership</a></li>
-								<li><a href="#/business">Business Skills</a></li>
-								<li><a href="#/global">Global Network</a></li>
-								<li><a href="#/friendship">Friendships</a></li>
-							</ul>
-						</li>
-						<li class="right-side-nav"><a href="#/functionOverview" style="color:#FFFFFF">Function Overview</a></li>
-						<li class="right-side-nav"><a href="#/apply" style="color:#FFFFFF; border:1px solid white; border-radius:10px; padding-top:5px; padding-bottom:5px; margin-top:10px;" id="APPLY">APPLY</a></li>
+			</nav>
 
-						<style>
-						@import url(https://fonts.googleapis.com/css?family=Raleway:300);
-						@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
-						.container .content {
-							font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
-						}
-						#APPLY:hover {background-color: black;}
+		</header>
 
-						h1, h2, h3, h4, h5, p, li, section, label, a, button, footer, header, div {
-							font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
-						}
-
-					
-						</style>
-
-						<script>	
-						// 	function changeBackground() {
-							 
-						// 	  if (document.getElementById("reasons").style.color == "#037ef3"){
-						// 		document.getElementById("reasons").style.color='#ffffff'
-						// 	  } else {
-						// 	  	 document.getElementById("reasons").style.color="#037ef3";
-						// 	  }
-						// 	}
-
-						// </script>
-
-						<li role="separator" class="divider"></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-	</header>
-
-	<div class="container content" ng-app="myApp" style="width:100%; font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif !important;">
-		<div ng-view></div>
-	</div>
-
-
-	<footer id="footer" class="container">
-		<p id="footertitle">CONNECT WITH US</p>
-		<hr />
-		<div class="icon">
-			<a href="https://www.facebook.com/AIESECglobal">
-				<img src="img/facebookicon.png" id="facebookicon"></img>
-			</a>
-			<p><span id="fbfriends">0</span><br />friends<br />
-				<a href="https://www.facebook.com/AIESECglobal" style="color:#ffffff">Follow us</a>
-			</p>
+		<div class="container content" ng-app="myApp" style="width:100%">
+			<div ng-view></div>
 		</div>
-		<div class="icon">
-			<a href="https://twitter.com/AIESEC">
-				<img src="img/twittericon.png" id="twittericon"></img>
-			</a>
-			<p><span id="followers">0</span><br />followers<br />
-				<a href="https://twitter.com/AIESEC" style="color:#ffffff">Follow us</a>
-			</p>
-		</div>
-		<div class="icon">
-			<a href="https://www.linkedin.com/company/aiesec">
-				<img src="img/linkedinicon.png" id="linkedinicon"></img>
-			</a>
-			<p><span id="connections">0</span><br />connections<br />
-				<a href="https://www.linkedin.com/company/aiesec" style="color:#ffffff">Follow us</a>
-			</p>
-		</div>
-	</footer>
-</body>
-
-<script>
-	animateValue('fbfriends', 0, 2972, 7000);
-	animateValue('followers', 0, 4566, 8000);
-	animateValue('connections', 0, 421, 5000);
-</script>
 
 
+		<footer id="footer" class="container">
+			<p id="footertitle">CONNECT WITH US</p>
+			<hr />
+			<div class="icon">
+				<a href="https://www.facebook.com/AIESECglobal">
+					<img src="img/facebookicon.png" id="facebookicon"></img>
+				</a>
+				<p><span id="fbfriends">0</span><br />friends<br />
+					<a href="https://www.facebook.com/AIESECglobal" style="color:#ffffff">Follow us</a>
+				</p>
+			</div>
+			<div class="icon">
+				<a href="https://twitter.com/AIESEC">
+					<img src="img/twittericon.png" id="twittericon"></img>
+				</a>
+				<p><span id="followers">0</span><br />followers<br />
+					<a href="https://twitter.com/AIESEC" style="color:#ffffff">Follow us</a>
+				</p>
+			</div>
+			<div class="icon">
+				<a href="https://www.linkedin.com/company/aiesec">
+					<img src="img/linkedinicon.png" id="linkedinicon"></img>
+				</a>
+				<p><span id="connections">0</span><br />connections<br />
+					<a href="https://www.linkedin.com/company/aiesec" style="color:#ffffff">Follow us</a>
+				</p>
+			</div>
+		</footer>
 
+	</body>
+
+	<script>
+		animateValue('fbfriends', 0, 2972, 7000);
+		animateValue('followers', 0, 4566, 8000);
+		animateValue('connections', 0, 421, 5000);
+	</script>
 
 </html>

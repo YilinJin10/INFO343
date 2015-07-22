@@ -2,11 +2,25 @@
 //leadership.html and business-skills.html
 //composes of the data in js variable using D3 and Chartist.js
 
+//Create a bar chart using D3.js
 var drawSkillGraph = function() {
 	var xScale;
 	var yScale;
 	var svgHeight = 500;
 	var svgWidth = 800;
+
+	var topSkills = [
+		{skill: 'Leadership skills', count: 34}, 
+		{skill: 'Interpersonal relations and working collaboratively', count: 32}, 
+		{skill: 'Networking and relationship building', count: 32}, 
+		{skill: 'Project management skills', count: 31}, 
+		{skill: 'Persuasive speaking', count: 28}, 
+		{skill: 'Creative thinking and problem solving', count: 26}, 
+		{skill: 'Critical thinking, Analysis of arguments and information', count: 23}, 
+		{skill: 'Improve work based on feedback form others', count: 21}, 
+		{skill: 'Teaching skills', count: 18}, 
+		{skill: 'Financial and business management skills', count: 13}
+	];
 
 	var svgSkill = d3.select('#skill') // select div
 	    .append('svg') // append svg
@@ -92,6 +106,7 @@ var drawSkillGraph = function() {
 }
 
 
+//Using Chartist.js to create a pie chart
 var drawPieChart = function() {
 	var data = { 
 	  labels: ['Business and Finance', 'Legal and Law Enforcement', 'Student', 'Education', 'Other', 'Engineering', 'Media and Communications', 'Health and Medicine', 'Services'],
@@ -101,8 +116,9 @@ var drawPieChart = function() {
 	  labelInterpolationFnc: function(value) {return value[0]},
 	  width: '650px',
 	  height: '400px',
-
 	};
+
+	//setting different properties to support mobile friendliness
 	var responsiveOptions = [
 	  ['screen and (max-width: 640px)', {
 	  	labelOffset: 90,
@@ -118,40 +134,8 @@ var drawPieChart = function() {
 	    }
 	  }]
 	];
+
+	//create a chart and bind it to the div in leadership.html
 	new Chartist.Pie('.piechart', data, options, responsiveOptions);
 }
 
-
-
-//variables
-var topSkills = [{
-	skill: 'Leadership skills',
-	count: 34
-}, {
-	skill: 'Interpersonal relations and working collaboratively',
-	count: 32
-}, {
-	skill: 'Networking and relationship building',
-	count: 32
-}, {
-	skill: 'Project management skills',
-	count: 31
-}, {
-	skill: 'Persuasive speaking',
-	count: 28
-}, {
-	skill: 'Creative thinking and problem solving',
-	count: 26
-}, {
-	skill: 'Critical thinking, Analysis of arguments and information',
-	count: 23
-}, {
-	skill: 'Improve work based on feedback form others',
-	count: 21
-}, {
-	skill: 'Teaching skills',
-	count: 18
-}, {
-	skill: 'Financial and business management skills',
-	count: 13
-}];

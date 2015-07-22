@@ -32,34 +32,25 @@ myApp.config(function($routeProvider) { //$routeProvider = default parameter exp
   })
 })
 
-//The controllers are all specified in the .js file and not in the HTML
 
-
-// Landing page controller
+//the controllers for each page
 .controller('homeController', function($scope){
-  $scope.number = 10
 })
 
 .controller('globalController', function($scope){
-  $scope.about = "Here's some information about this page."
 })
 
 .controller('leadershipController', function($scope){
-  $scope.url = ""
-})
-.controller('businessController', function($scope){
-  $scope.url = ""
 })
 
+.controller('businessController', function($scope){
+})
 
 .controller('applyController', function($scope){
-  $scope.url = ""
 })
 
 .controller('functionController', function($scope){
-  $scope.url = ""
 })
 
 .controller('friendshipController', function($scope){
-  $scope.url = ""
 })
