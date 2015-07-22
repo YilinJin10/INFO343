@@ -1,3 +1,18 @@
+/*importing fonts and set font styles*/
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+
+.container .content {
+	font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#APPLY:hover {
+	background-color: black;
+}
+
+h1, h2, h3, h4, h5, p, li, section, label, a, button, footer, header, div {
+	font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+}
+
 /*styles for the footer*/
 #footer {
 	width: 100%;
@@ -29,6 +44,11 @@ a {
 	padding-top: 20px;
 	padding-left: 70px;
 	padding-bottom: 0px;
+}
+
+/*menu styles*/
+.dropdown.open a{
+	color:black !important;
 }
 
 

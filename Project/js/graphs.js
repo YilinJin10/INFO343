@@ -1,6 +1,6 @@
-//this .js file runs page02.html and page04.html
-//composes of the data in js variable and d3 code
-
+//this .js file creates the graphs for
+//leadership.html and business-skills.html
+//composes of the data in js variable using D3 and Chartist.js
 
 var drawSkillGraph = function() {
 	var xScale;
@@ -92,70 +92,34 @@ var drawSkillGraph = function() {
 }
 
 
-
-
-
-var pieChartField = function() {
-	var size = 600;
-	var radius = 200;
-
-	var margin = {
-		left:200, 
-		bottom:100, 
-		top:100, 
-		right:200
+var drawPieChart = function() {
+	var data = { 
+	  labels: ['Business and Finance', 'Legal and Law Enforcement', 'Student', 'Education', 'Other', 'Engineering', 'Media and Communications', 'Health and Medicine', 'Services'],
+	  series: [20,1, 12, 2, 8, 3, 5, 4, 4]
 	};
+	var options = {
+	  labelInterpolationFnc: function(value) {return value[0]},
+	  width: '650px',
+	  height: '400px',
 
-	var height = size - margin.bottom - margin.top; 
-	var width = size - margin.left - margin.right;
-
-	var svg = d3.select('#field')
-				.append('svg')
-				.attr('width', size)
-				.attr('height', size)
-				
-	var g = svg
-			.append('g')
-			.attr('transform', 'translate(' + (margin.left + radius) +  ',' + (margin.top + radius) + ')')
-	        .attr('height', height)
-	        .attr('width', width)
-
-	var arc = d3.svg.arc().outerRadius(radius);
-
-	var pie = d3.layout.pie()
-			  .value(function(d) {return d['count']})
-			  .sort(null);
-
-	var drawPie = function() {
-		g.selectAll('path')
-		  .data(pie(currentFields))
-		  .enter()
-		  .append('path')
-		  .attr('d', arc)
-		  .attr('fill', function(d, i) {return currentFields[i].color});
-
-		var labelr = radius + 30;
-
-		g.selectAll('text').data(currentFields).enter().append('text')
-		    .attr("transform", function(d) {
-		        var c = arc.centroid(d),
-		            x = c[0],
-		            y = c[1],
-		            // pythagorean theorem for hypotenuse
-		            h = Math.sqrt(x*x + y*y);
-		        return "translate(" + (x/h * labelr) +  ',' + (y/h * labelr) +  ")"})
-		    .attr("dy", ".35em")
-		    // are we past the center?
-		    .attr("text-anchor", function(d) {return (d.endAngle + d.startAngle)/2 > Math.PI ? "end" : "start"})
-		    .text(function(d, i) {return currentFields[i].field});
-	}
-	drawPie();
+	};
+	var responsiveOptions = [
+	  ['screen and (max-width: 640px)', {
+	  	labelOffset: 90,
+	    chartPadding: 20
+	    
+	  }],
+	  ['screen and (min-width: 641px)', {
+	    chartPadding: 60,
+	    labelOffset: 80,
+	    labelDirection: 'explode',
+	    labelInterpolationFnc: function(value) {
+	      return value;
+	    }
+	  }]
+	];
+	new Chartist.Pie('.piechart', data, options, responsiveOptions);
 }
-
-
-
-
-
 
 
 
@@ -191,64 +155,3 @@ var topSkills = [{
 	skill: 'Financial and business management skills',
 	count: 13
 }];
-
-
-var currentFields = [{
-	field: 'Business and Finance',
-	count: 20,
-	color: '#A60F2B'
-}, {
-	field: 'Student',
-	count: 12,
-	color: '#648C85'
-}, {
-	field: 'Other',
-	count: 8,
-	color: '#B3F2C9'
-}, {
-	field: 'Media and Communications',
-	count: 5,
-	color: '#528C18'
-}, {
-	field: 'Health and Medicine',
-	count: 4,
-	color: '#C3F25C'
-}, {
-	field: 'Services',
-	count: 4,
-	color: '#660066'
-}, {
-	field: 'Engineering',
-	count: 3,
-	color: '#FFFF66'
-}, {
-	field: 'Education',
-	count: 2,
-	color: '#339966'
-}, {
-	field: 'Legal and Law Enforcement',
-	count: 1,
-	color: '#003366'
-}];
-
-
-//we can use angular to display information here
-//can add some kind of icon or image
-var majors = [{
-	field: 'Social Science',
-	majors: ['Psychology', 'Economics', 'Communications', 'Geography', 'Linguistics', 'Public Health', 
-			'Political Science', 'Spanish', 'English', 'Education']
-}, {
-	field: 'Business',
-	majors: ['Marketing', 'Information Systems', ' Finance']
-}, {
-	field: 'Engineering',
-	majors: ['Bioengineering', 'Material Science and Engineering']
-}, {
-	field: 'Science',
-	majors: ['Neurobiology', 'Microbiology', 'Chemistry', 'Speech and Hearing Sciences']
-}, {
-	field: 'Technology and Computing',
-	majors: ['Informatics', 'Computer Science', 'ACMS', 'Statistics']
-}];
-
