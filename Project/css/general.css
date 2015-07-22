@@ -1,17 +1,17 @@
 
 /*styles for global.html*/
-.intro {
+.general .intro {
 	margin-top: 100px;
 }
 
-section {
+.general section {
 	text-align: center;
 	font-size: 25px;
 	margin-left: 100px;
 	margin-right: 100px;
 }
 
-.introimg{
+.general .introimg{
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0px;
@@ -21,19 +21,19 @@ section {
 	display: block;
 }
 
-.title {
+.general .title {
 	font-size:35px;
 	text-align: center;
 	color: #037ef3;
 }
 
-.container {
+.general .container {
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
 }
 
-#number {
+.general #number {
 	background-color: #037ef3;
 	width: 100% !important;
 	height: 150px;
@@ -43,30 +43,30 @@ section {
 	padding: 0px !important;
 }
 
-#country, #university, #members {
+.general #country, .general #university, .general #members {
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
 }
 
-.description {
+.general .description {
 	font-size: 18px;
 	text-align: center;
 }
 
-#map {
+.general #map {
 	text-align: center;
 	background-color: 
 }
 
-.allFloating {
+.general .allFloating {
 	margin-top: 0px;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto; 
 }
 
-.numicon {
+.general .numicon {
 	width: 70px;
 	height: 50px;
 	margin-top: 10px;
@@ -75,7 +75,7 @@ section {
 }
 
 @media screen and (max-width: 1200px) {
-	#country, #university, #members {
+	.general #country, .general #university, .general #members {
 		margin-left: 0px;
 		margin-right: 0px;
 		margin-top: 0px;
@@ -86,37 +86,37 @@ section {
 
 /*styles for apply.html*/
 
-p {
+.general p {
 	font-size: 18px;
 }
 
-#steps {
+.general #steps {
 	margin-left: auto;
 	margin-right: auto;
 	width: 80%;
 }
 
-#stepTitle {
+.general #stepTitle {
 	text-align: center;
 	font-size: 30px;
 	font-weight: bolder;
 }
 
-.stepTitle {
+.general .stepTitle {
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
 }
 
-#rsvp {
+.general #rsvp {
 	background-color: orange;
 }
 
-.slider {
+.general .slider {
 	list-style-type: none;
 }
 
-.applyli {
+.general .applyli {
 	background-color: #ffffff;
 	text-align: center;
 	width: 80%;
@@ -128,7 +128,7 @@ p {
 
 /*styles for business-skills.html*/
 
-#skills {
+.general #skills {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -138,7 +138,7 @@ p {
 	margin-bottom: 70px;
 }
 
-#pies {
+.general #pies {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -148,7 +148,7 @@ p {
 	margin-bottom: 70px;
 }
 
-#field {
+.general #field {
 	background-color: white;
 	width: 50%;
 	margin-left: auto;

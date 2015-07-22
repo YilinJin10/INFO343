@@ -1,62 +1,70 @@
-#intro {
-    margin-top: 100px;
-}
-
-#homePage{
+.homepage-style #homePage{
     background-image: url('../pics/homePage.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: -10px 60px;
 }
-.col-sm-6 {
+
+.homepage-style .col-sm-6 {
+    text-align: center;
+    margin-left:auto;
+    margin-right: auto;
+
+}
+
+.homepage-style .col-lg-3 {
     text-align: center;
     margin-left:auto;
     margin-right: auto;
 }
-.col-lg-3 {
+
+.homepage-style .col-md-6{
     text-align: center;
     margin-left:auto;
     margin-right: auto;
 }
-.col-md-6{
-text-align: center;
-margin-left:auto;
-margin-right: auto;
-}
-.col-xs-12{
+
+.homepage-style .col-xs-12{
     text-align: center;
     margin-left:auto;
     margin-right: auto;
 }
 
 @media screen and (max-width: 992px) {
-    #homePage{
+    .homepage-style #homePage{
         background-image: none;
         background-color: #3a7bbf;
     }
-    #homePageIntro{
+    
+    .homepage-style #homePageIntro{
         font-size: 20px;
     }
-    #title {
+    
+    .homepage-style #title {
         font-size: 40px;
     }
-    .space{
+    
+    .homepage-style .space{
         display:none;
     }
-    #whatwedo{
+    
+    .homepage-style #whatwedo{
         font-size: 40px;
     }
-    #homePageExplain{
+    
+    .homepage-style #homePageExplain{
         font-size: 20px;
     }
-    .linkpic{
+    
+    .homepage-style .linkpic{
         width:350px;
         height:325px;
         margin-left:auto;
         margin-right: auto;
-
     }
-    .applynow{
+    
+    .homepage-style .applynow{
         margin-left:25%;
         margin-right:30%;
         font-size: 20px;
@@ -64,44 +72,48 @@ margin-right: auto;
 }
 
 @media screen and (min-width: 992px) {
-    .linkpic{
+    .homepage-style .linkpic{
         width:250px;
         height:225px;
         margin-left:auto;
         margin-right: auto;
     }
-    .applynow{
+    
+    .homepage-style .applynow{
         margin-left:35%;
         margin-right:35%;
         font-size: 25px;
     }
 }
 
-
-#title {
+.homepage-style #title {
     font-size:70px;
     text-align: center;
     color: #ffffff;
 }
 
-#homePageIntro {
+.homepage-style #homePageIntro {
     font-size: 35px;
     font-weight: 100;
     font-family: "Helvetica Neue";
     text-align: center;
     color: #ffffff;
 }
-.intro {
+
+.homepage-style .intro {
     text-align: center;
 }
-.subtitle{
+
+.homepage-style .subtitle{
     font-weight: 500;
     text-align: center;
 }
-#homePageExplain{
+
+.homepage-style #homePageExplain{
     font-weight: 200;
 }
-.applynow{
+
+.homepage-style .applynow{
     width:400px;
     height:50px;
     border-radius: 25px;
@@ -109,11 +121,11 @@ margin-right: auto;
     background-color: #3a7bbf;
 
 }
-.label{
+.homepage-style .label{
     font-size: 18px;
     color:black;
 }
 
-.categories {
+.homepage-style .categories {
     font-size: 20px;
 }

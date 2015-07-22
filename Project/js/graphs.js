@@ -127,7 +127,7 @@ var pieChartField = function() {
 			  .sort(null);
 
 	var drawPie = function() {
-		g.selectAll('path')
+		var arcs = g.selectAll('path')
 		  .data(pie(currentFields))
 		  .enter()
 		  .append('path')
@@ -136,13 +136,14 @@ var pieChartField = function() {
 
 		var labelr = radius + 30;
 
-		g.selectAll('text').data(currentFields).enter().append('text')
-		    .attr("transform", function(d) {
+		// g.selectAll('text').data(pie(currentFields)).enter().append('text')
+		    arcs.append('svg:text').attr("transform", function(d) {
 		        var c = arc.centroid(d),
 		            x = c[0],
 		            y = c[1],
 		            // pythagorean theorem for hypotenuse
 		            h = Math.sqrt(x*x + y*y);
+		            console.log(d)
 		        return "translate(" + (x/h * labelr) +  ',' + (y/h * labelr) +  ")"})
 		    .attr("dy", ".35em")
 		    // are we past the center?

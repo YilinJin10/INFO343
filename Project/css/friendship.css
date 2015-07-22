@@ -1,12 +1,12 @@
 @media screen and (max-width: 992px) {
-    .bonding {
+    .friendship-style .bonding {
 
         position: relative;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
-    .working {
+    .friendship-style .working {
 
         position: relative;
         width: 80%;
@@ -16,14 +16,14 @@
 }
 
 @media screen and (min-width: 992px) {
-    .bonding {
+    .friendship-style .bonding {
         height: 700px;
         position: relative;
         width: 700px;
         margin-left: auto;
         margin-right: auto;
     }
-    .working {
+    .friendship-style .working {
         height: 700px;
         position: relative;
         width: 700px;
@@ -34,7 +34,7 @@
 }
 
 
-#topImage {
+.friendship-style #topImage {
     margin-left: auto;
     margin-right: auto;
     padding: 0px;
@@ -45,19 +45,19 @@
     display: block;
 }
 
-#title {
+.friendship-style #title {
     font-size:35px;
     text-align: center;
     color: #037ef3;
 }
 
-section {
+.friendship-style section {
     font-size: 25px;
     text-align: center;
     margin-left: 200px;
     margin-right: 200px;
 }
 
-#intro {
+.friendship-style #intro {
     margin-top: 100px;
 }
